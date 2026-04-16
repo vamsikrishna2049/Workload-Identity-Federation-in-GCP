@@ -12,6 +12,7 @@ variable "region" {
   default     = "us-central1"
 }
 
+
 # -------------------------------
 # VPC Configuration
 # -------------------------------
@@ -37,6 +38,12 @@ variable "auto_create_subnetworks" {
   default     = false
 }
 
+variable "allowed_ports" {
+  description = "List of allowed TCP ports for firewall"
+  type        = list(string)
+}
+
+
 # -------------------------------
 # Subnet Configuration
 # -------------------------------
@@ -54,3 +61,26 @@ variable "ip_cidr_range" {
     error_message = "The ip_cidr_range must be a valid CIDR block."
   }
 }
+
+# -------------------------------
+# Compute Configuration
+# -------------------------------
+
+variable "zone" {
+  description = "The GCP zone where resources will be created"
+  type        = string
+  default     = "us-central1-f"
+}
+
+variable "machine_type" {
+  type        = string
+  default     = "e2-standard-4"
+  description = "The machine type for the instance"
+}
+
+variable "machine_name" {
+  type        = string
+  default     = "ComputeInstance"
+  description = "The name of the compute instance"
+}
+

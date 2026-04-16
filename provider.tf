@@ -1,8 +1,14 @@
+# -------------------------------
+# Google Cloud Provider Configuration
+# -------------------------------
 provider "google" {
   project = var.project_id
   region  = var.region
 }
 
+# -------------------------------
+# Enable required APIs
+# -------------------------------
 terraform {
   required_providers {
     google = {
@@ -12,6 +18,7 @@ terraform {
   }
 }
 
+# Enable APIs required for the project
 locals {
   required_apis = [
     "compute.googleapis.com", # VM, VPC, firewall, routes
@@ -20,18 +27,7 @@ locals {
   ]
 }
 
-<<<<<<< HEAD
-
-locals {
-  required_apis = [
-    "compute.googleapis.com",        # VM, VPC, firewall, routes
-    "storage.googleapis.com",        # Cloud Storage
-    "dns.googleapis.com",            # Cloud DNS
-  ]
-}
-
-=======
->>>>>>> 82f120d (InfraCreated)
+# Enable the required APIs for the project
 resource "google_project_service" "apis" {
   for_each = toset(local.required_apis)
 
@@ -39,8 +35,4 @@ resource "google_project_service" "apis" {
   service = each.value
 
   disable_on_destroy = false
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 82f120d (InfraCreated)

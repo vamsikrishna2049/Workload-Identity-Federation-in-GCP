@@ -29,7 +29,7 @@ resource "google_compute_subnetwork" "primary_subnet" {
 resource "google_compute_firewall" "allow_ingress" {
   name        = "${var.vpc_name}-allow-ingress"
   depends_on  = [google_project_service.apis]
-  description = "Allow TCP traffic on ports 22, 80, 443, 5432, 8080"
+  description = "Allow TCP traffic on configurable ports"
 
   network   = google_compute_network.custom_vpc.name
   direction = "INGRESS"
@@ -37,7 +37,7 @@ resource "google_compute_firewall" "allow_ingress" {
 
   allow {
     protocol = "tcp"
-    ports    = ["22", "80", "443", "5432", "8080"]
+    ports    = var.allowed_ports
   }
 
   source_ranges = ["0.0.0.0/0"]
