@@ -1,3 +1,8 @@
+provider "google" {
+  project = var.project_id
+  region  = var.region
+}
+
 terraform {
   required_providers {
     google = {
@@ -6,19 +11,6 @@ terraform {
     }
   }
 }
-
-provider "google" {
-  project = var.project_id
-  region  = var.region
-}
-
-# terraform {
-#   backend "gcs" {
-#     bucket = "gcplearning-15042026"
-#     prefix = "terraform/state"
-#   }
-# }
-
 
 locals {
   required_apis = [
