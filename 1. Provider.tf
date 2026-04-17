@@ -14,10 +14,12 @@ provider "google" {
 # Enable required APIs
 # -------------------------------
 terraform {
+  required_version = ">= 1.6.0"
+
   required_providers {
     google = {
       source  = "hashicorp/google"
-      version = "7.28.0"
+      version = ">= 7.28.0, < 8.0"
     }
   }
 }
@@ -30,7 +32,6 @@ locals {
     "dns.googleapis.com",                  # Cloud DNS
     "iam.googleapis.com",                  # IAM & Workload Identity Federation
     "cloudresourcemanager.googleapis.com", # Cloud Resource Manager
-    "storage.googleapis.com",              # Cloud Storage
   ]
 }
 
