@@ -22,10 +22,10 @@ output "storageName" {
 }
 
 
-# output "workload_identity_provider" {
-#   value = "projects/${data.google_project.project.number}/locations/global/workloadIdentityPools/${var.pool_id}/providers/${var.provider_id}"
-# }
+output "service_account_email" {
+  value = google_service_account.terraform_sa.email
+}
 
-# output "service_account_email" {
-#   value = google_service_account.github_sa.email
-# }
+output "workload_identity_provider" {
+  value = "projects/${data.google_project.project.number}/locations/global/workloadIdentityPools/github-pool/providers/github"
+}
