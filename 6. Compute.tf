@@ -38,7 +38,7 @@ resource "google_compute_instance" "vm" {
 
     queue_count = 0
     stack_type  = "IPV4_ONLY"
-    subnetwork  = "projects/${var.project_id}/regions/${var.region}/subnetworks/default"
+    subnetwork  = google_compute_subnetwork.primary_subnet.id
   }
 
   # reservation_affinity is used to specify the reservation that the instance should use. 

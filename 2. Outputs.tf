@@ -20,3 +20,12 @@ output "name_servers" {
 output "storageName" {
   value = google_storage_bucket.bucket.name
 }
+
+
+# output "workload_identity_provider" {
+#   value = "projects/${data.google_project.project.number}/locations/global/workloadIdentityPools/${var.pool_id}/providers/${var.provider_id}"
+# }
+
+# output "service_account_email" {
+#   value = google_service_account.github_sa.email
+# }

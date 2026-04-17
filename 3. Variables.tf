@@ -84,3 +84,30 @@ variable "machine_name" {
   description = "The name of the compute instance"
 }
 
+# # -------------------------------
+# # Workload Identity Federation
+# # -------------------------------
+# variable "pool_id" {
+#   description = "The Workload Identity Pool ID"
+#   type        = string
+#   default     = "github-pool"
+# }
+
+# variable "provider_id" {
+#   description = "The Workload Identity Pool provider ID"
+#   type        = string
+#   default     = "github-provider"
+# }
+
+# variable "github_repo" {
+#   description = "The GitHub repository to authorize for workload identity federation"
+#   type        = string
+#   default     = "vamsikrishna2049/Workload-Identity-Federation-in-GCP"
+# }
+
+# variable "sa_name" {
+#   description = "The service account ID used by GitHub Actions"
+#   type        = string
+#   default     = "github-actions-sa"
+# }
+
