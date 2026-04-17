@@ -22,5 +22,5 @@ output "service_account_email" {
 }
 
 output "workload_identity_provider" {
-  value = "projects/${data.google_project.project.number}/locations/global/workloadIdentityPools/github-pool-v2/providers/github"
+  value = "projects/${data.google_project.project.number}/locations/global/workloadIdentityPools/${google_iam_workload_identity_pool.github_pool.workload_identity_pool_id}/providers/github"
 }
