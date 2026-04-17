@@ -9,7 +9,7 @@ resource "google_service_account_iam_member" "github_wif_binding" {
   service_account_id = google_service_account.terraform_sa.name
   role               = "roles/iam.workloadIdentityUser"
 
-  member = "principalSet://iam.googleapis.com/projects/${data.google_project.project.number}/locations/global/workloadIdentityPools/github-pool/attribute.repository/${var.github_repo}"
+  member = "principalSet://iam.googleapis.com/projects/${data.google_project.project.number}/locations/global/workloadIdentityPools/github-pool-v2/attribute.repository/${var.github_repo}"
 }
 
 # Grant the service account permissions to manage resources (e.g., Editor role)

@@ -1,6 +1,8 @@
+data "google_project" "project" {}
+
 # Workload Identity Pool
 resource "google_iam_workload_identity_pool" "github_pool" {
-  workload_identity_pool_id = "github-pool"
+  workload_identity_pool_id = "github-pool-v2"  # 🔥 CHANGE THIS
   display_name              = "GitHub Actions Pool"
 }
 
